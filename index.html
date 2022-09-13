@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel Dalyop</title>
+    <!--Custom css-->
+    <link rel="stylesheet" href="/style/style.css">
+    <!--Icon link-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!--Scroll revel js-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body id="body" class="">
+    <div class="animations">
+        <i class="uil uil-brightness visible" id="day"></i>
+        <i class="uil uil-moon " id="dark"></i>
+    </div>
+    <div class="ball1"></div>
+    <div class="ball2"></div>
+    <div class="ball3" id="ball"></div>
+    <div class="ball4"></div>
+    <div class="ball5"></div>
+
+    <section class="card">
+        <img class="pic" src="/images/profile.png" alt="Emmanuel Dalyop">
+        <div class="first_text">
+            <p>HELLO! I'm,</p>
+            <h1>Emmanuel Dalyop</h1>
+            <h2>A <span class="auto-type"></span></h2>
+            <div class="connect">
+                <a href="#"><i class="uil uil-file-info-alt"></i>Resume</a>
+                <a href="#"> &#x1F60a; Let's Connect</a>
+            </div>
+        </div>
+        <div class="social">
+            <a title="tweeter" href="https://twitter.com/MrIntellectual5?t=383f-aoFixIIIKtMsjLjJg&s=09" target="_blank" rel="noopener noreferrer"><i class="uil uil-twitter"></i>Tweeter</a>
+            <a title="linkedin" href="https://www.linkedin.com/mwlite/in/emmanuel-dalyop-5b6a1b178" target="_blank" rel="noopener noreferrer"><i class="uil uil-linkedin-alt"></i>LinkedIn</a>
+            <a title="facebook" href="https://www.facebook.com/emmanuel.dalyop.96" target="_blank" rel="noopener noreferrer"><i class="uil uil-facebook-f"></i>Facebook</a>
+            <a title="whatsapp" href="#"><i class="uil uil-whatsapp"></i>What's App</a>
+            <a title="github" href="https://github.com/EcodeJR" target="_blank" rel="noopener noreferrer"><i class="uil uil-github"></i>Github</a>
+            <a title="portfolio" href="#"><i class="uil uil-link"></i>Portfolio</a>
+        </div>
+        <div class="last_text">
+            <h1 class="l-text">I'm <span>excited</span> to add value to your company and project.</h1>
+            <a class="down" href="mailto: emmanueldcode@gmail.com"><i class="uil uil-message"></i>Send a Mail</a>
+            <a class="down" href="tel: +234 705 124 2451"><i class="uil uil-calling"></i>Call Me</a>
+        </div>
+    </section>
+    <footer>
+        <h3 class="right">Copyright <i class="uil uil-copyright"></i>2022 by EcodeJR</h3>
+    </footer>
+
+
+    <!--Auto type effect-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        //@@@@@@@@@@@@Typing Effect@@@@@################
+        var typed = new Typed(".auto-type", {
+            strings: ["Frontend Developer",
+                "Blockchain Developer",
+                "UI/UX Designer"
+            ],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true
+        });
+
+        var body = document.getElementById('body');
+        var day = document.getElementById('day');
+        var dark = document.getElementById('dark');
+        var ball3 = document.getElementById('ball');
+
+        if (localStorage.getItem("darkMode")) {
+            day.classList.remove('visible');
+            dark.classList.add('visible');
+            body.classList.add('dark');
+            ball3.style.background = "#eef6f9";
+        }
+        day.addEventListener('click',
+            function() {
+                this.style.transition = ".6s";
+                this.classList.add('visible');
+                dark.classList.remove('visible');
+                body.classList.remove('dark');
+                ball3.style.background = "#193948";
+                localStorage.removeItem("darkMode")
+            });
+
+        dark.addEventListener('click',
+            function() {
+                this.style.transition = ".6s";
+                this.classList.add('visible');
+                day.classList.remove('visible');
+                body.classList.add('dark');
+                ball3.style.background = "#eef6f9";
+                localStorage.setItem("darkMode", "true");
+
+            });
+
+
+        //Scroll Revel
+        ScrollReveal({
+            reset: true,
+            distance: '60px',
+            duration: 2500,
+            delay: 400
+        });
+
+        ScrollReveal().reveal('.pic, .first_text, .l-text', {
+            delay: 500,
+            origin: 'left'
+        });
+        ScrollReveal().reveal('.down', {
+            delay: 700,
+            origin: 'bottom'
+        });
+        ScrollReveal().reveal('.social a', {
+            delay: 600,
+            origin: 'right',
+            interval: 200
+        });
+        ScrollReveal().reveal('.right', {
+            delay: 600,
+            origin: 'right'
+        });
+    </script>
+</body>
+
+</html>
